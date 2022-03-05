@@ -94,7 +94,7 @@ const App = () => {
   
       await getGifList();
     } catch (error) {
-      console.log("Error sending GIF:", error)
+      console.log("Gif already exist ");
     }
   };
 
@@ -113,7 +113,7 @@ const App = () => {
   
       await getGifList();
     } catch (error) {
-      console.log("Error sending GIF:", error)
+      console.log("Error upvote GIF:", error)
     }
   };
  
@@ -196,7 +196,7 @@ const App = () => {
 
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
-                <img src={item.gifLink} alt="Gif upload"/>
+                <img src={item.gifLink} alt="Invalid link"/>
                 {(item.userAddress.toString() === walletAddress) && owner()}
 
                 <div className='container-upvote'>

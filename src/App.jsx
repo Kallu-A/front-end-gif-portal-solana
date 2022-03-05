@@ -98,6 +98,25 @@ const App = () => {
     }
   };
 
+  const deleteGif = async (item) => {
+    try {
+      const provider = getProvider();
+      const program = new Program(idl, programID, provider);
+  
+      await program.rpc.removeGif(item.gifLink, {
+        accounts: {
+          baseAccount: baseAccount.publicKey,
+          user: provider.wallet.publicKey,
+        },
+      });
+      console.log("GIF remove")
+  
+      await getGifList();
+    } catch (error) {
+      console.log("Error remove GIF:", error)
+    }
+  };
+
   const upVote = async (item) => {
     try {
       const provider = getProvider();
@@ -198,6 +217,7 @@ const App = () => {
               <div className="gif-item" key={index}>
                 <img src={item.gifLink} alt="Invalid link"/>
                 {(item.userAddress.toString() === walletAddress) && owner()}
+                {(item.userAddress.toString() === walletAddress) && deleteButon(item)}
 
                 <div className='container-upvote'>
                 <img src="asset/upvote.png" alt='upvote' onClick={() => upVote(item)}/> 
@@ -213,9 +233,17 @@ const App = () => {
 
   const owner = () => {
     return (
-      <span className="connect-wallet-button display-owner"> Owner </span>
+        <span className="connect-wallet-button display-owner"> Owner </span>
     ) 
   } 
+
+  const deleteButon = (item) => {
+    return ( 
+      <div className='container-delete-gif'>
+        <img src="asset/remove.png" alt='delete' className="delete-gif" onClick={() => deleteGif(item)}/>
+      </div>
+    )
+  }
 
   // UseEffects
   useEffect(() => {

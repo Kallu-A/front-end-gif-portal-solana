@@ -174,3 +174,22 @@
   text-align: left;
   margin-left: 10px;
 }
+
+.delete-gif {
+}
+
+.container-delete-gif {
+  width: 30px;
+  position: absolute;
+  align-self: flex-end;
+}
+
+.container-delete-gif:hover {
+  cursor: pointer;
+}
+
+
+.container-delete-gif img {
+  width: 100%;
+  height: auto;
+}

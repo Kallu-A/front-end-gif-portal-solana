@@ -253,9 +253,9 @@ const App = () => {
 			{/* This was solely added for some styling fanciness */}
 			<div className={walletAddress ? 'authed-container' : 'container'}>
         <div className="header-container">
-          <p className="header">Star Wars Portal</p>
+          <p className="header">✨ My gif on solana ! ✨</p>
           <p className="sub-text">
-            Your GIF collection of Star Wars in the metaverse ✨
+            The GIF collection of Kallu in the metaverse
           </p>
           {!walletAddress && renderNotConnectedContainer()}
 

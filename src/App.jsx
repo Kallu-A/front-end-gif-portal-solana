@@ -128,7 +128,7 @@ const App = () => {
           user: provider.wallet.publicKey,
         },
       });
-      console.log("GIF upvote sent to program", inputValue)
+      console.log("GIF upvote sent to program")
   
       await getGifList();
     } catch (error) {
@@ -240,7 +240,7 @@ const App = () => {
   const deleteButon = (item) => {
     return ( 
       <div className='container-delete-gif'>
-        <img src="asset/remove.png" alt='delete' className="delete-gif" onClick={() => deleteGif(item)}/>
+        <img src="asset/remove.png" alt='delete' onClick={() => deleteGif(item)}/>
       </div>
     )
   }
